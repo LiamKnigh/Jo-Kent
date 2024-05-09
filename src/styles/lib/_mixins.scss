@@ -1,17 +1,34 @@
 @mixin container ($max: xl) {
-    margin-inline: auto;
-    padding-inline: 1rem;
 
-    @if $max == xl {
+    $value_map: (
+        sm: 1,
+        md: 2,
+        lg: 3,
+        xl: 4,
+    );
+
+    @if map-has-key($value_map, $max) {
+
+        $value: map-get($value_map, $max);
+
+        margin-inline: auto;
+        padding-inline: 1rem;
         max-width: $screen-sm;
-        @media (min-width: $screen-md) {
-            max-width: $screen-md;
+
+        @if $value > 1 {
+            @media (min-width: $screen-md) {
+                max-width: $screen-md;
+            }
         }
-        @media (min-width: $screen-lg) {
-            max-width: $screen-lg;
+        @if $value > 2 {
+            @media (min-width: $screen-lg) {
+                max-width: $screen-lg;
+            }
         }
-        @media (min-width: $screen-xl) {
-            max-width: $screen-xl;
+        @if $value > 3 {
+            @media (min-width: $screen-xl) {
+                max-width: $screen-xl;
+            }
         }
     }
 }
