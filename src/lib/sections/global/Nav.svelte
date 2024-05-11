@@ -32,7 +32,7 @@
             display: block;
             width: .5rem;
             height: .5rem;
-            background: darken($color-light, 20);
+            background: darken($color-light, 40);
             border-radius: 100rem;
             position: absolute;
             top: calc(100% + 0.5rem);
